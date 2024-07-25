@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.small-article-link {
+  text-decoration: none;
+  color: black;
+}
+
+.small-article-link:hover>p {
+  text-decoration: underline;
+}
+
+
+/* Enlever le border sur la recherche */
+
+.bg-transparent.w-full.text-white.px-8.focus\:outline-0:focus-visible {
+  outline: none;
+}

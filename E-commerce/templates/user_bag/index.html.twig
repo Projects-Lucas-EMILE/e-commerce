@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserBag index{% endblock %}
+
+{% block body %}
+    <h1>UserBag index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_bag in user_bags %}
+            <tr>
+                <td>{{ user_bag.id }}</td>
+                <td>{{ user_bag.quantity }}</td>
+                <td>
+                    <a href="{{ path('app_user_bag_show', {'id': user_bag.id}) }}">show</a>
+                    <a href="{{ path('app_user_bag_edit', {'id': user_bag.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_bag_new') }}">Create new</a>
+{% endblock %}

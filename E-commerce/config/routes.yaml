@@ -1,0 +1,9 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+api_home:
+  path: /api
+  controller: App\Controller\Api\HomeController::index
+app_logout:
+    path: /logout
+    methods: GET

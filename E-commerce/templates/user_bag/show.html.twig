@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserBag{% endblock %}
+
+{% block body %}
+    <h1>UserBag</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_bag.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ user_bag.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_bag_index') }}">back to list</a>
+
+    <a href="{{ path('app_user_bag_edit', {'id': user_bag.id}) }}">edit</a>
+
+    {{ include('user_bag/_delete_form.html.twig') }}
+{% endblock %}

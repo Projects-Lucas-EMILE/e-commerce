@@ -1,0 +1,36 @@
+{# _form.html.twig #}
+
+{{ form_start(form) }}
+
+{{ form_row(form.name) }}
+{{ form_row(form.description) }}
+{{ form_row(form.price) }}
+{{ form_row(form.features) }}
+{{ form_row(form.views) }}
+{{ form_row(form.stock) }}
+{{ form_row(form.status) }}
+{{ form_row(form.weight) }}
+{{ form_row(form.discount) }}
+{{ form_row(form.category) }}
+{{ form_row(form.subCategory) }}
+{{ form_row(form.images) }}
+<button type="submit" class="btn btn-primary">Save</button>
+{{ form_end(form) }}
+
+<script>
+	// JavaScript code to handle dynamic addition/removal of image upload fields
+var $imageFieldsContainer = $('#image-fields-container');
+var $addImageButton = $('.btn-add-image');
+
+$addImageButton.on('click', function () {
+var prototype = $imageFieldsContainer.data('prototype');
+var index = $imageFieldsContainer.children('.image-field').length;
+
+var newForm = prototype.replace(/__name__/g, index);
+$imageFieldsContainer.append(newForm);
+});
+
+$imageFieldsContainer.on('click', '.btn-remove-image', function () {
+$(this).closest('.image-field').remove();
+});
+</script>

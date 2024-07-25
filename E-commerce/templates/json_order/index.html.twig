@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JsonOrder index
+{% endblock %}
+
+{% block body %}
+	<h1>JsonOrder index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Data</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for json_order in json_orders %}
+				<tr>
+					<td>{{ json_order.id }}</td>
+					<td>
+						{% if json_order.data %}
+							<pre>{{ dump(json_order.data) }}</pre>
+						{% else %}
+							No data available
+						{% endif %}
+					</td>
+					<td>
+						<a href="{{ path('app_json_order_show', {'id': json_order.id}) }}">show</a>
+						<a href="{{ path('app_json_order_edit', {'id': json_order.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_json_order_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New JsonOrder{% endblock %}
+
+{% block body %}
+    <h1>Create new JsonOrder</h1>
+
+    {{ include('json_order/_form.html.twig') }}
+
+    <a href="{{ path('app_json_order_index') }}">back to list</a>
+{% endblock %}

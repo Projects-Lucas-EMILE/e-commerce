@@ -1,0 +1,24 @@
+{# templates/form/login_form_type.html.twig #}
+
+{# The form_start() function adds the form opening tag #}
+{{ form_start(form) }}
+
+    {# Render the username field with its label #}
+    <div class="mb-3">
+        {{ form_label(form.username, 'Username') }}
+        {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+
+    {# Render the password field with its label #}
+    <div class="mb-3">
+        {{ form_label(form.password, 'Password') }}
+        {{ form_widget(form.password, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+
+    {# Render the submit button #}
+    <div class="d-grid">
+        {{ form_widget(form.submit, { 'attr': {'class': 'btn btn-primary btn-block'} }) }}
+    </div>
+
+{# The form_end() function adds the form closing tag #}
+{{ form_end(form) }}

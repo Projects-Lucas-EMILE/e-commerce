@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JsonOrder{% endblock %}
+
+{% block body %}
+    <h1>JsonOrder</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ json_order.id }}</td>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <td>{{ json_order.data ? json_order.data|json_encode : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_json_order_index') }}">back to list</a>
+
+    <a href="{{ path('app_json_order_edit', {'id': json_order.id}) }}">edit</a>
+
+    {{ include('json_order/_delete_form.html.twig') }}
+{% endblock %}
